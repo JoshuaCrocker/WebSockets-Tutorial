@@ -23,7 +23,7 @@ var messages = [{
     link: 'http://gameofthrones.wikia.com/wiki/Inn_at_the_Crossroads'
   },
   likedBy:[2,3],
-  ts: Date.now() - 10000
+  ts: Date.now() - 10000000
 },
 {
   userId:3,
@@ -34,7 +34,7 @@ var messages = [{
     link: 'http://gameofthones.wikia.com/wiki/Margaery_Tyrell'
   },
   likedBy:[],
-  ts: Date.now() - 10000
+  ts: Date.now() - 100000000
 }];
 
 // app.get('/', function(req, res) {
@@ -43,6 +43,7 @@ var messages = [{
 // });
 
 app.use(express.static('app'));
+app.use('/bower_components', express.static('bower_components'));
 
 io.on('connection', function(socket) {
   console.log('Something connected to Socket.io');
