@@ -9,6 +9,7 @@ socket.on('messages', function(data) {
           ${data.userName}
         </div>
         <a href=${data.content.link} class="message" target="blank">${data.content.text}</a>
+        <input type="submit" class="likes-count" value="${data.likedBy.length} Enjoys">
       `);
   }).join(' ');
 
@@ -26,7 +27,8 @@ function addMessage(e) {
       link: linkAddress.value,
       text: message.value
     },
-    ts: Date.now()
+    ts: Date.now(),
+    likedBy:[]
   };
 
   socket.emit('new-message', payload);
