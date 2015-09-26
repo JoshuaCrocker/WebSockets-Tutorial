@@ -14,3 +14,25 @@ socket.on('messages', function(data) {
 
   document.getElementById('messages').innerHTML = html;
 });
+
+function addMessage(e) {
+  var username = document.getElementById('username'),
+      linkAddress = document.getElementById('linkAddress'),
+      message = document.getElementById('message')
+
+  var payload = {
+    userName: username.value,
+    content: {
+      link: linkAddress.value,
+      text: message.value
+    },
+    ts: Date.now()
+  };
+
+  socket.emit('new-message', payload);
+
+  linkAddress.value = '';
+  message.value = '';
+
+  return false;
+}
