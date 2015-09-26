@@ -1,3 +1,11 @@
+var userId = localStorage.getItem('userId') ||  randomId();
+localStorage.setItem('userId', userId);
+console.info("Hi i'm user #"+userId);
+
+function randomId() {
+  return Math.floor(Math.random() * 1e11);
+}
+
 var socket = io.connect('http://localhost:3000',  { forceNew: true });
 
 socket.on('messages', function(data) {
