@@ -39,6 +39,7 @@ function addMessage(e) {
       message = document.getElementById('message')
 
   var payload = {
+    messageId:randomId(),
     userName: username.value,
     content: {
       link: linkAddress.value,
